@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db: 
+    container_name: twitt3r-container
+    image: mongo:5.0.16
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 12345
+      MONGO_INITDB_DATABASE: twitt3r
+      MONGO_REPLICA_HOST: localhost
+      MONGO_REPLICA_PORT: "27017"
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - 27017:27017
+    restart: always     
