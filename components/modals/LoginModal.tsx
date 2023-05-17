@@ -28,10 +28,13 @@ export const LoginModal = () => {
 const onSubmit = useCallback(async() => {
   try {
     setIsLoading(true)
+   
 
     await signIn("credentials", {
       email,
-      password
+      password,
+      redirect: false,
+
     })
 
     loginModal.onClose()
@@ -68,7 +71,7 @@ const footerContent = (
       title="Login"
       actionLabel="Sign in"
       onClose={loginModal.onClose}
-      onSubmit={onSubmit}
+      onSubmit={ onSubmit}
       body={bodyContent}
       footer={footerContent}
     />
